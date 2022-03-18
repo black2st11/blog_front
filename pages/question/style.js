@@ -1,0 +1,18 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+  width: 100%;
+  max-width: 60rem;
+`;
+
+export const WarningWrapper = styled.div``;
+
+export const QuestionWrapper = styled.div`
+  min-height: 45rem;
+`;
+
+export const PagingationWrapper = styled.div`
+  margin: 1rem auto;
+  width: 100%;
+  text-align: center;
+`;
