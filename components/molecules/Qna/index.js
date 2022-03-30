@@ -25,7 +25,8 @@ const Qna = ({ question, answer }) => {
   return (
     <S.Container>
       <Question content={question}>
-        {answer && answer.map((v, i, a) => <Answer content={v.content} />)}
+        {answer &&
+          answer.map((v, i, a) => <Answer key={i} content={v.content} />)}
       </Question>
     </S.Container>
   );

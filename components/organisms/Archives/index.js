@@ -17,7 +17,7 @@ const Archives = ({ archive }) => {
     <S.Container is_phone={phoneWidth > scrollX}>
       {archive.map((item, index, array) => {
         return (
-          <S.ItemWrapper>
+          <S.ItemWrapper key={index}>
             <Archiving {...item} />
           </S.ItemWrapper>
         );

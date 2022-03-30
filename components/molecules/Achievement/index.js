@@ -39,14 +39,22 @@ const Achievement = ({
   return (
     <S.Container is_phone={scrollX < phoneWidth}>
       <S.MainWrapper is_phone={scrollX < phoneWidth}>
-        <S.ImgWrapper is_phone={scrollX < phoneWidth}>
-          <Slider {...settings}>
-            {img &&
-              img.map((item, index, array) => (
-                <Image key={index} src={item.src} width={400} height={300} />
-              ))}
-          </Slider>
-        </S.ImgWrapper>
+        {img && (
+          <S.ImgWrapper is_phone={scrollX < phoneWidth}>
+            <Slider {...settings}>
+              {img &&
+                img.map((item, index, array) => (
+                  <Image
+                    key={index}
+                    src={item.src}
+                    width={400}
+                    height={300}
+                    alt={`업적${index}`}
+                  />
+                ))}
+            </Slider>
+          </S.ImgWrapper>
+        )}
         <S.AttrWrapper is_phone={scrollX < phoneWidth}>
           <S.ValueWrapper>
             <Text type="h2">{name}</Text>

@@ -43,9 +43,10 @@ export const ContentWrapper = styled.ul`
 
 export const Content = styled.li`
   line-height: 2;
-  ::before {
-    content: "0";
-    padding: 0 0.5rem 0 0;
+  padding: 0 0 0 1rem;
+
+  :: marker {
+    content: "◼️";
   }
 `;
 

@@ -1,9 +1,7 @@
-import * as S from "./style";
+import * as S from "../../styles/dun_style";
 import { Dungeon as Dun } from "../../components/molecules";
-import useSWR from "swr";
-import { useState } from "react";
-import fetcher from "../../lib/fetch";
-import axios from "axios";
+import { DunAPI } from "../../api";
+import { useState, useEffect } from "react";
 const defaultFormat = {
   name: "데이터가 서버에서 안내려오는 던전",
   duration: "지금",
@@ -15,30 +13,27 @@ const defaultFormat = {
   final: "조만간 고칠 것 같습니다.",
 };
 
-export default function Dungeon({ init }) {
+export default function Dungeon() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      let data = await DunAPI.getData();
+      setData(data);
+      setIsLoading(false);
+    })();
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <S.Container>
-      <S.Wrapper>{init && init.map((v, i, a) => <Dun {...v} />)}</S.Wrapper>
+      <S.Wrapper>
+        {data && data.map((v, i, a) => <Dun key={i} {...v} />)}
+      </S.Wrapper>
     </S.Container>
   );
-}
-
-export async function getServerSideProps() {
-  try {
-    let res = await axios({
-      url: "http://localhost:8000/dungeon",
-    });
-    return {
-      props: {
-        init: res.data,
-      },
-    };
-  } catch (e) {
-    console.log(e);
-    return {
-      props: {
-        init: [defaultFormat],
-      },
-    };
-  }
 }

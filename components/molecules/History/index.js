@@ -17,13 +17,12 @@ const History = ({ list, total }) => {
   const getCurrentScroll = (event) => {
     setScrollX(window.innerWidth);
   };
-  console.log(list);
   return (
     <S.Container is_phone={scrollX < phoneWidth}>
       <S.TitleWrapper>
         <Text type="h4">길드</Text>
         <S.FullDuration>
-          <Text type="h4">총 기간 : 약 {total}개월</Text>
+          {total > 1 ? <Text type="h4">총 기간 : 약 {total}개월</Text> : null}
         </S.FullDuration>
       </S.TitleWrapper>
       <S.ItemContainer>

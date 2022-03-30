@@ -1,9 +1,7 @@
-import * as S from "./style";
+import * as S from "../../styles/guild_style";
 import { History } from "../../components/molecules";
-import useSWR from "swr";
-import { useState } from "react";
-import fetcher from "../../lib/fetch";
-import axios from "axios";
+import { GuiAPI } from "../../api";
+import { useEffect, useState } from "react";
 const list = [
   {
     range: "2020.01.01 ~ 2020.02.01",
@@ -36,31 +34,27 @@ const list = [
   },
 ];
 
-export default function Guild({ init }) {
+export default function Guild() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      let data = await GuiAPI.getData();
+      setData(data);
+      setIsLoading(false);
+    })();
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <S.Container>
       <S.Wrapper>
-        <History list={init.data} total={init.total} />
+        <History list={data.data} total={data.total} />
       </S.Wrapper>
     </S.Container>
   );
-}
-
-export async function getServerSideProps() {
-  try {
-    let res = await axios({
-      url: "http://localhost:8000/career",
-    });
-    return {
-      props: {
-        init: res.data,
-      },
-    };
-  } catch (e) {
-    return {
-      props: {
-        init: list,
-      },
-    };
-  }
 }

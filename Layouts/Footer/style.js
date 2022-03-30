@@ -51,4 +51,6 @@ export const Info = styled.h2`
   font-size: 16px;
 `;
 
-export const LogoWrapper = styled.div``;
+export const LogoWrapper = styled.div`
+  margin: 0 0 0 1rem;
+`;

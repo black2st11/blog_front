@@ -4,6 +4,10 @@ const withAntdLess = require("next-plugin-antd-less");
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    loader: "akamai",
+    path: "/",
+  },
 };
 
 module.exports = withAntdLess({

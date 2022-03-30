@@ -1,7 +1,6 @@
 import * as S from "./style";
 import { Text, Tag } from "../../atom";
 const Status = ({ title, list }) => {
-  console.log(list);
   return (
     <S.Container>
       <S.TitleWrapper>
@@ -9,7 +8,6 @@ const Status = ({ title, list }) => {
       </S.TitleWrapper>
       {list &&
         list.map((item, index, array) => {
-          console.log(item.value);
           return (
             <S.ItemWrapper key={index}>
               <S.KeyWrapper>

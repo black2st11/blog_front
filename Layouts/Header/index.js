@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import * as S from "./style";
-import NoImage from "../../public/images/NoImage.png";
-import topBanner from "../../public/images/topBanner.png";
 import { useState, useEffect } from "react";
+import { Menu } from "antd";
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
+const { SubMenu } = Menu;
 
 const siteTitle = "Moon Blog";
 const dataProps = {
@@ -13,21 +13,27 @@ const dataProps = {
   nav: [
     {
       name: "스탯",
+      link: "me",
     },
     {
       name: "던전",
+      link: "dungeon",
     },
     {
       name: "길드",
+      link: "guild",
     },
     {
       name: "업적",
+      link: "achievement",
     },
     {
       name: "공략",
+      link: "posts",
     },
     {
       name: "메시지",
+      link: "question",
     },
   ],
   info: [
@@ -52,6 +58,7 @@ const dataProps = {
 export default function Header({ home }) {
   const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
+  const [collapse, setCollapse] = useState(true);
   useEffect(() => {
     window.addEventListener("scroll", getCurrentScroll);
 
@@ -87,6 +94,17 @@ export default function Header({ home }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </Head>
+      {!collapse && (
+        <S.FixedMenu>
+          <Menu>
+            {dataProps.nav.map((item, index, array) => (
+              <Menu.Item key={index}>
+                <Link href={item.link}>{item.name}</Link>
+              </Menu.Item>
+            ))}
+          </Menu>
+        </S.FixedMenu>
+      )}
 
       {router.pathname == "/" ? (
         <S.Container isHome={true}>
@@ -99,11 +117,30 @@ export default function Header({ home }) {
                 {dataProps.nav.map((item, index, array) => {
                   return (
                     <S.NavItem key={index}>
-                      <S.NavName>{item.name}</S.NavName>
+                      <Link href={`/${item.link}`}>
+                        <S.NavName>{item.name}</S.NavName>
+                      </Link>
                     </S.NavItem>
                   );
                 })}
               </S.Nav>
+              <S.FixedButton>
+                {collapse ? (
+                  <AiOutlineMenuFold
+                    size={25}
+                    onClick={() => {
+                      setCollapse(!collapse);
+                    }}
+                  />
+                ) : (
+                  <AiOutlineMenuUnfold
+                    size={25}
+                    onClick={() => {
+                      setCollapse(!collapse);
+                    }}
+                  />
+                )}
+              </S.FixedButton>
             </S.NavWrapper>
           </S.Menu>
           <S.TopBanner isHome={true}>
@@ -111,7 +148,7 @@ export default function Header({ home }) {
               return (
                 <S.ItemWrapper key={index}>
                   <S.Category active>
-                    {item.category}. {item.value} <br />
+                    {item.category}.{item.value} <br />
                   </S.Category>
                 </S.ItemWrapper>
               );
@@ -122,19 +159,41 @@ export default function Header({ home }) {
         <S.Container>
           <S.Menu>
             <S.NavWrapper>
-              <S.TitleWrapper>
-                <S.Title>{dataProps.title}</S.Title>
-              </S.TitleWrapper>
+              <Link href="/">
+                <S.TitleWrapper>
+                  <S.Title>{dataProps.title}</S.Title>
+                </S.TitleWrapper>
+              </Link>
+
               <S.Nav>
                 {dataProps.nav.map((item, index, array) => {
                   return (
                     <S.NavItem key={index}>
-                      <S.NavName>{item.name}</S.NavName>
+                      <Link href={`/${item.link}`}>
+                        <S.NavName>{item.name}</S.NavName>
+                      </Link>
                     </S.NavItem>
                   );
                 })}
               </S.Nav>
             </S.NavWrapper>
+            <S.FixedButton>
+              {collapse ? (
+                <AiOutlineMenuFold
+                  size={25}
+                  onClick={() => {
+                    setCollapse(!collapse);
+                  }}
+                />
+              ) : (
+                <AiOutlineMenuUnfold
+                  size={25}
+                  onClick={() => {
+                    setCollapse(!collapse);
+                  }}
+                />
+              )}
+            </S.FixedButton>
           </S.Menu>
           <S.TopBanner isHome={false}>
             <S.Loc>{router.pathname.split("/")[1].toUpperCase()}</S.Loc>

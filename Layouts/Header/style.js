@@ -44,6 +44,10 @@ export const NavWrapper = styled.div`
 export const Nav = styled.ul`
   display: flex;
   margin: auto 0 auto auto;
+
+  @media (max-width: 560px) {
+    display: none;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -52,10 +56,12 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: 2em;
+  cursor: pointer;
 `;
 
 export const NavItem = styled.li`
   margin: auto 0.5em auto 1em;
+  cursor: pointer;
 `;
 
 export const NavName = styled.p`
@@ -93,6 +99,9 @@ export const Category = styled.p`
   white-space: nowrap;
   letter-spacing: 0.15em;
   height: 1.25em;
+  @media (max-width: 560px) {
+    font-size: 1.25em;
+  }
 `;
 
 export const Value = styled.span`
@@ -106,4 +115,26 @@ export const Loc = styled.span`
   font-size: 2em;
   font-weight: bold;
   margin-top: 4rem;
+`;
+
+export const FixedMenu = styled.div`
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 300px;
+  z-index: 3;
+  height: 100vh;
+  display: none;
+  background-color: white;
+  @media (max-width: 560px) {
+    display: block;
+  }
+`;
+
+export const FixedButton = styled.div`
+  display: none;
+  margin-right: 2rem;
+  @media (max-width: 560px) {
+    display: block;
+  }
 `;

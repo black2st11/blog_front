@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - front
+
+  front:
+    volumes:
+      - static:/static
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+
+volumes:
+  static:

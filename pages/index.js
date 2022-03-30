@@ -1,43 +1,41 @@
 import { Achievement, Dungeon, History, Status } from "../components/molecules";
-import * as S from "./style";
-import axios from "axios";
-export default function Home({ init }) {
-  console.log(init);
+import * as S from "../styles/main_style";
+import { HomeAPI } from "../api";
+import { useState, useEffect } from "react";
+
+export default function Home() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      let data = await HomeAPI.getData();
+      setData(data);
+      setIsLoading(false);
+    })();
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <S.Container>
       <S.InfoWrapper>
-        <Status title="정보" list={init.me.info} />
-        <Status title="스킬" list={init.me.skill} />
+        <Status title="정보" list={data.me.info} />
+        <Status title="스킬" list={data.me.skill} />
       </S.InfoWrapper>
       <S.HistoryWrapper>
-        <History total={0} list={init.career} />
+        <History total={0} list={data.career} />
       </S.HistoryWrapper>
       <S.DungeonWrapper>
-        {init.dungeon && init.dungeon.map((v, i, a) => <Dungeon {...v} />)}
+        {data.dungeon &&
+          data.dungeon.map((v, i, a) => <Dungeon key={i} {...v} />)}
       </S.DungeonWrapper>
       <S.AchieveWrapper>
-        {init.achieve && init.achieve.map((v, i, a) => <Achievement {...v} />)}
+        {data.achieve &&
+          data.achieve.map((v, i, a) => <Achievement key={i} {...v} />)}
       </S.AchieveWrapper>
     </S.Container>
   );
-}
-
-export async function getServerSideProps() {
-  try {
-    let res = await axios({
-      url: "http://localhost:8000/main",
-    });
-    console.log(res);
-    return {
-      props: {
-        init: res.data,
-      },
-    };
-  } catch (e) {
-    return {
-      props: {
-        init: {},
-      },
-    };
-  }
 }

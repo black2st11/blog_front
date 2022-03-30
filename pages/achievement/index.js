@@ -1,11 +1,9 @@
-import * as S from "./style";
+import * as S from "../../styles/ach_style";
 import { Achievement as Ach } from "../../components/molecules";
-import useSWR from "swr";
-import { useState } from "react";
-import fetcher from "../../lib/fetch";
+import { useState, useEffect } from "react";
 import Test1 from "../../public/images/Django.png";
 import Test2 from "../../public/images/Next.png";
-import axios from "axios";
+import { AchAPI } from "../../api";
 const achievement = {
   name: "스케줄 관리 어플",
   duration: "2020-01-24 ~ 2020-04-20",
@@ -22,35 +20,27 @@ const achievement = {
   ],
 };
 
-export default function Achievement({ init }) {
-  console.log(init);
+export default function Achievement() {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      let data = await AchAPI.getData();
+      setData(data);
+      setIsLoading(false);
+    })();
+  }, []);
+  if (isLoading) {
+    return null;
+  }
   return (
     <S.Container>
       <S.Wrapper>
-        {init.map((v, i, a) => (
-          <Ach {...v} />
+        {data.map((v, i, a) => (
+          <Ach key={i} {...v} />
         ))}
       </S.Wrapper>
     </S.Container>
   );
-}
-
-export async function getServerSideProps() {
-  try {
-    let res = await axios({
-      url: "http://localhost:8000/achievement",
-    });
-    return {
-      props: {
-        init: res.data,
-      },
-    };
-  } catch (e) {
-    console.log(e);
-    return {
-      props: {
-        init: [achievement],
-      },
-    };
-  }
 }
