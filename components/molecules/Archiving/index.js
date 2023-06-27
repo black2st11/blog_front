@@ -11,7 +11,7 @@ const Archiving = ({ title, list }) => {
         list.map((item, index, array) => {
           return (
             <S.ListWrapper key={index}>
-              <Text>- {item}</Text>
+              <Text>- {item.content}</Text>
             </S.ListWrapper>
           );
         })}

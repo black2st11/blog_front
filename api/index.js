@@ -2,7 +2,7 @@ import axios from "axios";
 
 class API {
   constructor(url, returnType) {
-    this.host = "https://admin.black2st11.com";
+    this.host = "http://localhost:8000";
     this.url = url;
     this.returnType = returnType;
   }
@@ -68,12 +68,12 @@ class API {
   }
 }
 
-export const QueAPI = new API("/question", { data: [], total: 1 });
-export const PostAPI = new API("/post", { data: [], total: 1 });
-export const MeAPI = new API("/me", {});
-export const AchAPI = new API("/achievement", []);
-export const DunAPI = new API("/dungeon", []);
-export const GuiAPI = new API("/career", []);
+export const QueAPI = new API("/questions", { data: [], total: 1 });
+export const PostAPI = new API("/posts", { data: [], total: 1 });
+export const MeAPI = new API("/hunters", {});
+export const AchAPI = new API("/achievements", []);
+export const DunAPI = new API("/dungeons", []);
+export const GuiAPI = new API("/careers", []);
 export const HomeAPI = new API("/main", {});
 
 export async function getPostFile(url) {

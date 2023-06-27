@@ -14,7 +14,7 @@ export const InfoWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 
   @media screen and (max-width: 1200px) {
     flex-direction: column;

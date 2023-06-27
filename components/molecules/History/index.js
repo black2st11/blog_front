@@ -2,7 +2,7 @@ import * as S from "./style";
 import { Text, Tag, List } from "../../atom";
 import { useState, useEffect } from "react";
 
-const History = ({ list, total }) => {
+const History = ({ list, total=2 }) => {
   const [scrollX, setScrollX] = useState(0);
   useEffect(() => {
     window.addEventListener("resize", getCurrentScroll);
@@ -17,6 +17,7 @@ const History = ({ list, total }) => {
   const getCurrentScroll = (event) => {
     setScrollX(window.innerWidth);
   };
+  console.log(list)
   return (
     <S.Container is_phone={scrollX < phoneWidth}>
       <S.TitleWrapper>
@@ -43,14 +44,16 @@ const History = ({ list, total }) => {
                   <S.PositionWrapper>
                     <Text>{item.position}</Text>
                   </S.PositionWrapper>
-                  <Tag list={item.skill} />
+                  {Object.entries(item.skills).map(([key, value])=>(
+                  <Tag list={value} />
+                  ))}
                   <S.WorkWrapper>
                     <Text>{item.work}</Text>
                   </S.WorkWrapper>
                   <S.WorkWrapper>
                     <Text>{item.achievement && item.achievement.name}</Text>
                   </S.WorkWrapper>
-                  <List list={item.description} />
+                  <List list={item.descriptions} />
                 </S.DetailWrapper>
               </S.ItemWrapper>
             );

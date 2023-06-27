@@ -12,8 +12,8 @@ const manage = (data) => {
         name: v.title,
         id: v.id,
       },
-      created_at: v.created_at,
-      tag: v.tag,
+      created: v.created,
+      tags: v.tags,
     });
   });
   return temp;
@@ -48,19 +48,19 @@ const Posts = () => {
     },
     {
       title: "날짜",
-      dataIndex: "created_at",
-      key: "created_at",
-      render: (date) => {
-        return <>{Date({ dateString: date })}</>;
+      dataIndex: "created",
+      key: "created",
+      render: (created) => {
+        return <>{Date({ dateString: created })}</>;
       },
     },
     {
       title: "태그",
-      key: "tag",
-      dataIndex: "tag",
-      render: (tag) => (
+      key: "tags",
+      dataIndex: "tags",
+      render: (tags) => (
         <>
-          {tag.map((v, i, a) => {
+          {tags.map((v, i, a) => {
             return (
               <Tag color="success" key={i}>
                 {v.name}
@@ -74,7 +74,7 @@ const Posts = () => {
   if (isLoading) {
     return null;
   }
-  const dataSource = manage(data.data);
+  const dataSource = manage(data);
   return (
     <S.Container>
       <Table

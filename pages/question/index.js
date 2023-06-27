@@ -22,7 +22,7 @@ const Question = () => {
     if (data == {}) {
       return <></>;
     }
-    return data.data.map((v, i, a) => (
+    return data.map((v, i, a) => (
       <Qna key={i} question={v.content} answer={v.answers} />
     ));
   };

@@ -10,7 +10,7 @@ const Achievement = ({
   position,
   start_date,
   end_date,
-  description,
+  descriptions,
   main_work,
 }) => {
   const [scrollX, setScrollX] = useState(0);
@@ -71,9 +71,9 @@ const Achievement = ({
         </S.AttrWrapper>
       </S.MainWrapper>
       <S.ContentWrapper>
-        {description &&
-          description.map((item, index, array) => (
-            <S.Content key={index}>{item}</S.Content>
+        {descriptions &&
+          descriptions.map((item, index, array) => (
+            <S.Content key={index}>{item.content}</S.Content>
           ))}
       </S.ContentWrapper>
     </S.Container>

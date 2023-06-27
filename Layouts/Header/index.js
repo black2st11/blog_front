@@ -13,7 +13,7 @@ const dataProps = {
   nav: [
     {
       name: "스탯",
-      link: "me",
+      link: "hunter",
     },
     {
       name: "던전",

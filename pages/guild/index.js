@@ -53,7 +53,7 @@ export default function Guild() {
   return (
     <S.Container>
       <S.Wrapper>
-        <History list={data.data} total={data.total} />
+        <History list={data}  />
       </S.Wrapper>
     </S.Container>
   );

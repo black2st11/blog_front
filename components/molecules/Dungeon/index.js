@@ -3,18 +3,18 @@ import { Text } from "../../atom";
 
 const Dungeon = ({
   name,
-  grade,
+  difficulty,
   duration,
-  loc,
+  address,
   size,
-  description,
+  descriptions,
   impression,
 }) => {
   return (
     <S.Container>
       <S.TitleWrapper>
         <Text type="h4">{name}</Text>
-        <S.GradeWrapper>{grade}</S.GradeWrapper>
+        <S.GradeWrapper>{difficulty}</S.GradeWrapper>
       </S.TitleWrapper>
       <S.ItemWrapper>
         <S.KeyWrapper>기간</S.KeyWrapper>
@@ -22,16 +22,16 @@ const Dungeon = ({
       </S.ItemWrapper>
       <S.ItemWrapper>
         <S.KeyWrapper>위치</S.KeyWrapper>
-        <S.ValueWrapper>{loc}</S.ValueWrapper>
+        <S.ValueWrapper>{address}</S.ValueWrapper>
       </S.ItemWrapper>
       <S.ItemWrapper>
         <S.KeyWrapper>규모</S.KeyWrapper>
         <S.ValueWrapper>{size}</S.ValueWrapper>
       </S.ItemWrapper>
       <S.ContentWrapper>
-        {description &&
-          description.map((value, index, array) => (
-            <S.Content key={index}>{value}</S.Content>
+        {descriptions &&
+          Object.entries(descriptions).map(([key, value]) => (
+            <S.Content>{value.content}</S.Content>
           ))}
       </S.ContentWrapper>
       <S.FinalWrapper>결과 : {impression}</S.FinalWrapper>
