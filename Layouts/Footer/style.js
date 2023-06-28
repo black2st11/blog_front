@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+import { colorPallete, fontSize, viewSize } from "../../styles/config";
+
 export const Container = styled.div`
   display: flex;
   flex-directon: column;
-  background-color: #333;
+  background-color: ${colorPallete.black};
   width: 100%;
   height: 15rem;
   align-items: center;
@@ -11,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Inner = styled.div`
-  max-width: 1200px;
+  max-width: ${viewSize.container};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +41,7 @@ export const TitleWrapper = styled.div`
 export const Title = styled.h1`
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: ${fontSize.LARGE};
 `;
 
 export const InfoWrapper = styled.div`
@@ -48,7 +50,7 @@ export const InfoWrapper = styled.div`
 
 export const Info = styled.h2`
   color: white;
-  font-size: 16px;
+  font-size: ${fontSize.NORMAL};
 `;
 
 export const LogoWrapper = styled.div`

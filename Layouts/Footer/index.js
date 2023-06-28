@@ -1,6 +1,9 @@
-import * as S from "./style";
 import Image from "next/image";
+
+import { info } from "../../config";
+import * as S from "./style";
 import Logo from "../../public/images/FooterLogo.png";
+
 const Footer = () => {
   return (
     <S.Container>
@@ -11,13 +14,16 @@ const Footer = () => {
           </S.LogoWrapper>
           <S.ColWrapper>
             <S.TitleWrapper>
-              <S.Title>문정훈</S.Title>
+              <S.Title>{info.name}</S.Title>
             </S.TitleWrapper>
             <S.InfoWrapper>
-              <S.Info>Email. black2st11@gmail.com</S.Info>
+              <S.Info>Email. {info.email}</S.Info>
             </S.InfoWrapper>
             <S.InfoWrapper>
-              <S.Info>Tel. 010-8614-7257</S.Info>
+              <S.Info>Position. {info.position}</S.Info>
+            </S.InfoWrapper>
+            <S.InfoWrapper>
+              <S.Info>Address. {info.address}</S.Info>
             </S.InfoWrapper>
           </S.ColWrapper>
         </S.RowWrapper>
