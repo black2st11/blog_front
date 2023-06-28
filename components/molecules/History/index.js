@@ -2,7 +2,7 @@ import * as S from "./style";
 import { Text, Tag, List } from "../../atom";
 import { useState, useEffect } from "react";
 
-const History = ({ list, total=2 }) => {
+const History = ({ list}) => {
   const [scrollX, setScrollX] = useState(0);
   useEffect(() => {
     window.addEventListener("resize", getCurrentScroll);
@@ -11,13 +11,16 @@ const History = ({ list, total=2 }) => {
     return () => window.removeEventListener("resize", getCurrentScroll);
   }, []);
 
-  let padWidth = 990;
   let phoneWidth = 820;
 
   const getCurrentScroll = (event) => {
     setScrollX(window.innerWidth);
   };
-  console.log(list)
+  let total = 0
+  list.forEach(item => {
+    total += item.duration
+  })
+
   return (
     <S.Container is_phone={scrollX < phoneWidth}>
       <S.TitleWrapper>
