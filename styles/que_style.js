@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colorPallete } from "./config";
 
 export const Container = styled.div`
   width: 100%;
@@ -11,7 +12,7 @@ export const WarningWrapper = styled.div`
   margin: 2rem 0;
   font-size: 2rem;
   font-weight: bold;
-  color: #dd5555;
+  color: ${colorPallete.warn};
 `;
 
 export const QuestionWrapper = styled.div`

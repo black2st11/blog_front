@@ -41,7 +41,6 @@ export const dataProps = {
       fontSize: "2rem",
       whiteSpace: "pre-line",
       display: "block",
-      height: "195px",
       lineHeight: "5rem",
       fontWeight: "bold",
       color: "white",
