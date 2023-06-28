@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <S.Container>
       <S.InfoWrapper>
-        <Status title="정보" list={data.me.info} />
-        <Status title="스킬" list={data.me.skill} />
+        {/* <Status title="정보" list={data.me.info} />
+        <Status title="스킬" list={data.me.skill} /> */}
       </S.InfoWrapper>
       <S.HistoryWrapper>
         <History total={0} list={data.career} />

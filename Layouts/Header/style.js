@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
+import { colorPallete } from "../../styles/config";
 
 const typing = keyframes`
   from {height : 0};
@@ -8,14 +9,14 @@ const blink = keyframes`
   50% {border-color : transparent}
 `;
 
-const animation = (props) => css`
+const animation = props => css`
   ${typing} 3s steps(120);
 `;
 
 export const Container = styled.header`
   display: flex;
   flex-direction: column;
-  height: ${(props) => (props.isHome ? "100vh" : "20vh")};
+  height: ${props => (props.isHome ? "100vh" : "20vh")};
 `;
 
 export const Menu = styled.div`
@@ -25,9 +26,9 @@ export const Menu = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: ${(props) => (props.isTop ? "transparent" : "#ffffff")};
+  background-color: ${props => (props.isTop ? "transparent" : "#ffffff")};
   height: 4rem;
-  box-shadow: ${(props) =>
+  box-shadow: ${props =>
     props.isTop ? "none" : "0 2px 4px 0 rgba(0, 0, 0, 0.2)"};
   z-index: 1;
 `;
@@ -57,6 +58,8 @@ export const TitleWrapper = styled.div`
 export const Title = styled.h1`
   font-size: 2em;
   cursor: pointer;
+  color: ${props => (props.isTop ? "white" : "black")};
+  font-weight: 600;
 `;
 
 export const NavItem = styled.li`
@@ -66,11 +69,13 @@ export const NavItem = styled.li`
 
 export const NavName = styled.p`
   font-size: 1.5em;
+  color: ${props => (props.isTop ? "white" : "black")};
+  font-weight: 600;
 `;
 
 export const TopBanner = styled.div`
-  height: ${(props) => (props.isHome ? "100%" : "15rem")};
-  background: #444;
+  height: ${props => (props.isHome ? "100%" : "15rem")};
+  background: ${colorPallete.primary};
   display: flex;
   flex-direction: column;
   align-items: center;

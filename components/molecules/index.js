@@ -6,4 +6,5 @@ export { default as Status } from "./Status";
 export { default as Description } from "./Description";
 export { default as Dungeon } from "./Dungeon";
 export { default as Achievement } from "./Achievement";
-export { default as Qna } from './Qna'
+export { default as Qna } from "./Qna";
+export { default as Nav } from "./Nav";
