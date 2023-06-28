@@ -5,8 +5,8 @@ export const Container = styled.div`
   padding: 1.5rem;
   border-radius: 0.75rem;
   width: 100%;
-  max-width: ${(props) => (props.is_phone ? "30rem" : "50rem")};
-
+  max-width: ${props => (props.is_phone ? "30rem" : "50rem")};
+  background-color:white;
   margin: 1rem;
   box-shadow: 0.1rem 0.1rem 0.1rem rgb(0 0 0 / 10%);
 `;
@@ -36,7 +36,7 @@ export const ItemWrapper = styled.div`
   width: 100%;
   border-bottom: 0.0625rem solid #d7e2eb;
   padding: 1.5rem 0;
-  flex-direction ${(props) => (props.is_phone ? "column" : "row")};
+  flex-direction ${props => (props.is_phone ? "column" : "row")};
   &: last-child {
     border-bottom: none;
   }
@@ -62,7 +62,7 @@ export const WorkWrapper = styled.div`
 `;
 
 export const DetailWrapper = styled.div`
-  margin: ${(props) => (props.is_phone ? "1rem 0" : "none")};
+  margin: ${props => (props.is_phone ? "1rem 0" : "none")};
 `;
 
 export const Divider = styled.div``;

@@ -24,7 +24,7 @@ const Achievement = ({
   let padWidth = 990;
   let phoneWidth = 1000;
 
-  const getCurrentScroll = (event) => {
+  const getCurrentScroll = event => {
     setScrollX(window.innerWidth);
   };
 

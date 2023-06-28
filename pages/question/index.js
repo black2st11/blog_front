@@ -1,6 +1,6 @@
 import * as S from "../../styles/que_style";
 import { Qna } from "../../components/molecules";
-import { Editor } from "../../components/atom";
+import { Container, Editor } from "../../components/atom";
 import { Pagination } from "antd";
 import { useState, useEffect } from "react";
 import { QueAPI } from "../../api";
@@ -27,7 +27,7 @@ const Question = () => {
     ));
   };
 
-  const getData = async (page) => {
+  const getData = async page => {
     setPage(page);
     let data = await QueAPI.getData(page);
     setData(data);
@@ -48,12 +48,12 @@ const Question = () => {
   }
 
   return (
-    <S.Container>
+    <Container>
       <S.WarningWrapper>
         여기에 이상한 말을 쓸 경우 삭제됩니다.
       </S.WarningWrapper>
       <Editor
-        onChange={(e) => setText(e)}
+        onChange={e => setText(e)}
         value={text}
         onSubmit={() => {
           handleSubmit();
@@ -70,7 +70,7 @@ const Question = () => {
           }}
         />
       </S.PagingationWrapper>
-    </S.Container>
+    </Container>
   );
 };
 

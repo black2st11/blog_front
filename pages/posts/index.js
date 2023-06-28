@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import * as S from "../../styles/post_style";
 import { PostAPI } from "../../api";
 import Date from "../../utils/date";
-const manage = (data) => {
+import { Container } from "../../components/atom";
+const manage = data => {
   let temp = [];
   data.map((v, i, a) => {
     temp.push({
@@ -32,7 +33,7 @@ const Posts = () => {
     })();
   }, []);
 
-  const getData = async (pageIndex) => {
+  const getData = async pageIndex => {
     setPage(pageIndex);
     let next_data = await PostAPI.getData(pageIndex);
     setData(next_data);
@@ -42,7 +43,7 @@ const Posts = () => {
       title: "제목",
       dataIndex: "title",
       key: "title",
-      render: (title) => {
+      render: title => {
         return <Link href={`posts/${title.id}`}>{title.name}</Link>;
       },
     },
@@ -50,7 +51,7 @@ const Posts = () => {
       title: "날짜",
       dataIndex: "created",
       key: "created",
-      render: (created) => {
+      render: created => {
         return <>{Date({ dateString: created })}</>;
       },
     },
@@ -58,7 +59,7 @@ const Posts = () => {
       title: "태그",
       key: "tags",
       dataIndex: "tags",
-      render: (tags) => (
+      render: tags => (
         <>
           {tags.map((v, i, a) => {
             return (
@@ -76,8 +77,9 @@ const Posts = () => {
   }
   const dataSource = manage(data);
   return (
-    <S.Container>
+    <Container>
       <Table
+        style={{ width: "100%", margin: "1rem auto" }}
         loading={false}
         pagination={{ current: page, pageSize: 10, total: data.total }}
         dataSource={dataSource}
@@ -86,7 +88,7 @@ const Posts = () => {
           getData(pagination.current);
         }}
       />
-    </S.Container>
+    </Container>
   );
 };
 

@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.1rem rgb(0 0 0 / 10%);
+  background-color: white;
 `;
 
 export const TitleWrapper = styled.div`

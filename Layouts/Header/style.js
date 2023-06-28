@@ -16,7 +16,7 @@ const animation = props => css`
 export const Container = styled.header`
   display: flex;
   flex-direction: column;
-  height: ${props => (props.isHome ? "100vh" : "20vh")};
+  height: ${props => (props.isHome ? "100vh" : "auto")};
 `;
 
 export const Menu = styled.div`

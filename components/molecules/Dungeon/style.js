@@ -10,6 +10,7 @@ export const Container = styled.div`
   box-shadow: 0.1rem 0.1rem 0.1rem rgb(0 0 0 / 10%);
   max-width: 20rem;
   margin: 1rem;
+  background-color: white;
 `;
 
 export const TitleWrapper = styled.div`

@@ -4,16 +4,21 @@ const { TextArea } = Input;
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <>
-    <Form.Item>
+    <Form.Item style={{ width: "100%" }}>
       <TextArea
         rows={4}
-        onChange={(e) => {
+        onChange={e => {
           onChange(e.target.value);
         }}
         value={value}
       />
     </Form.Item>
-    <Form.Item>
+    <Form.Item
+      style={{
+        width: "100%",
+        textAlign: "right",
+      }}
+    >
       <Button
         htmlType="submit"
         loading={submitting}
