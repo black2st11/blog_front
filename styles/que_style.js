@@ -16,7 +16,8 @@ export const WarningWrapper = styled.div`
 `;
 
 export const QuestionWrapper = styled.div`
-  min-height: 45rem;
+  min-height: 30rem;
+  width: 100%;
 `;
 
 export const PagingationWrapper = styled.div`

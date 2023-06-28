@@ -59,11 +59,11 @@ const Question = () => {
           handleSubmit();
         }}
       />
-      <S.QuestionWrapper>{data && generator(data)}</S.QuestionWrapper>
+      <S.QuestionWrapper>{data && generator(data.results)}</S.QuestionWrapper>
       <S.PagingationWrapper>
         <Pagination
           current={page}
-          total={data.total_count}
+          total={data.count}
           defaultPageSize={5}
           onChange={(page, pageSize) => {
             getData(page);

@@ -7,4 +7,5 @@ export const Container = styled.div`
     margin : 1rem auto;
     border: 0.0625rem solid #d7e2eb;
     box-shadow: 0.1rem 0.1rem 0.1rem rgb(0 0 0 / 10%);
+    background-color: white;
 `
