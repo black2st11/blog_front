@@ -4,6 +4,7 @@ import * as S from "../../styles/post_style";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { PostAPI, getPostFile } from "../../api";
+import { Container } from "../../components/atom";
 export default function Post() {
   const [data, setData] = useState();
   const [file, setFile] = useState();
@@ -25,13 +26,13 @@ export default function Post() {
   }
 
   return (
-    <S.Container>
+    <Container>
       <S.TitleWrapper>
         <PostTitle {...data} />
       </S.TitleWrapper>
       <article>
         <div dangerouslySetInnerHTML={{ __html: file }} />
       </article>
-    </S.Container>
+    </Container>
   );
 }
