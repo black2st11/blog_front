@@ -1,5 +1,9 @@
+import {Rate} from 'antd'
+
 import * as S from "./style";
 import { Text } from "../../atom";
+
+const desc = ['very easy', 'soso', 'normal', 'hard', 'hell']
 
 const Dungeon = ({
   name,
@@ -14,7 +18,7 @@ const Dungeon = ({
     <S.Container>
       <S.TitleWrapper>
         <Text type="h4">{name}</Text>
-        <S.GradeWrapper>{difficulty}</S.GradeWrapper>
+        <S.GradeWrapper><Rate tooltips={desc} value={difficulty} disabled/></S.GradeWrapper>
       </S.TitleWrapper>
       <S.ItemWrapper>
         <S.KeyWrapper>기간</S.KeyWrapper>

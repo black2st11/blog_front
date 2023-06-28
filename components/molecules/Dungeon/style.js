@@ -15,12 +15,14 @@ export const Container = styled.div`
 
 export const TitleWrapper = styled.div`
   display: flex;
-  padding: 1rem;
+  flex-direction: column;
+  padding: 0.5rem;
   border: 0.0625rem solid #d7e2eb;
+  text-align: center;
 `;
 
 export const GradeWrapper = styled.div`
-  margin: auto 1rem auto auto;
+  margin-top: 0.5rem;
 `;
 
 export const KeyWrapper = styled.div`
