@@ -34,7 +34,7 @@ export const dataProps = {
       1000,
       `이름: 문정훈\n생년월일: 1995.05.16\nEmail: black2st11@gmail.com`,
       1000,
-      `이름: 문정훈\n생년월일: 1995.05.16\nEmail: black2st11@gmail.com\n포지션: Baceknd Developer(Python)`,
+      `이름: 문정훈\n생년월일: 1995.05.16\nEmail: black2st11@gmail.com\n포지션: Backend Developer(Python)`,
     ],
     speed: 50,
     style: {
