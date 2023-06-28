@@ -50,7 +50,7 @@ const Question = () => {
   return (
     <Container>
       <S.WarningWrapper>
-        여기에 이상한 말을 쓸 경우 삭제됩니다.
+        동일 IP 제한(하루 5개)
       </S.WarningWrapper>
       <Editor
         onChange={e => setText(e)}

@@ -1,8 +1,16 @@
 import styled from "styled-components";
+import { colorPallete } from "./config";
 
-export const Container = styled.div`
-    width : 100%:
+export const Outter = styled.div`
+    width: 100%;
+    padding: 5rem 0;
+    background-color: ${colorPallete.white};
+`
+
+export const Inner = styled.div`
+    width : 100%;
     max-width : 65rem;
+    margin: auto;
 `;
 
 export const InfoWrapper = styled.div`
