@@ -2,7 +2,7 @@ import * as S from "../../styles/me_style";
 import { Status, Archiving } from "../../components/molecules";
 import { MeAPI } from "../../api";
 import { useEffect, useState } from "react";
-import { hunter_data, skills_data, archivings_data } from "./data";
+import { hunter_data, skills_data, archivings_data } from "../../data/hunter";
 import { Container } from "../../components/atom";
 
 export default function Me() {

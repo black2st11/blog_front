@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import * as S from "../styles/main_style";
-import {dataProps} from './data'
+import {dataProps} from '../data/home'
 import { colorPallete, fontSize, fontWeight } from "../styles/config";
 // TODO 메인페이지 구성 변경 필요
 
