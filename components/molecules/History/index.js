@@ -31,7 +31,7 @@ const History = ({ list}) => {
       </S.TitleWrapper>
       <S.ItemContainer>
         {list &&
-          list.map((item, index, array) => {
+          list.map((item, index) => {
             return (
               <S.ItemWrapper key={index} is_phone={scrollX < phoneWidth}>
                 <S.RangeWrapper>
@@ -47,8 +47,8 @@ const History = ({ list}) => {
                   <S.PositionWrapper>
                     <Text>{item.position}</Text>
                   </S.PositionWrapper>
-                  {Object.entries(item.skills).map(([key, value])=>(
-                  <Tag list={value} />
+                  {Object.entries(item.skills).map(([key, value], index)=>(
+                    <Tag key={index} list={value} />
                   ))}
                   <S.WorkWrapper>
                     <Text>{item.work}</Text>

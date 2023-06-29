@@ -9,8 +9,8 @@ const Status = ({ title, data }) => {
       </S.TitleWrapper>
 
       {data &&
-        Object.entries(data).map(([key, value]) => (
-          <S.ItemWrapper>
+        Object.entries(data).map(([key, value], index) => (
+          <S.ItemWrapper key={index}>
             <S.KeyWrapper>
               <Text type="h4">{key}</Text>
             </S.KeyWrapper>

@@ -34,8 +34,8 @@ const Dungeon = ({
       </S.ItemWrapper>
       <S.ContentWrapper>
         {descriptions &&
-          Object.entries(descriptions).map(([key, value]) => (
-            <S.Content>{value.content}</S.Content>
+          Object.entries(descriptions).map(([key, value], index) => (
+            <S.Content key={index}>{value.content}</S.Content>
           ))}
       </S.ContentWrapper>
       <S.FinalWrapper>결과 : {impression}</S.FinalWrapper>

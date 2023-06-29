@@ -40,8 +40,9 @@ export default function Me() {
       </S.InfoWrapper>
       <S.ArchivingWrapper>
         {archivings &&
-          archivings.map(archiving => (
+          archivings.map((archiving, index) => (
             <Archiving
+              key={index}
               title={archiving.category}
               list={archiving.descriptions}
             />

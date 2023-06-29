@@ -26,14 +26,14 @@ export default function Home() {
   return (
     <S.Outter>
       <S.Inner>
-        {dataProps.introduce.map(section=>(
-          <IntroWrapper>
+        {dataProps.introduce.map((section, index)=>(
+          <IntroWrapper key={index}>
             <Title>
               {section.category}
             </Title>
           <div>
-            {section.descriptions.map(description => (
-              <Description>
+            {section.descriptions.map((description, index) => (
+              <Description key={index}>
                 - {description.content}
               </Description>
             ))}
