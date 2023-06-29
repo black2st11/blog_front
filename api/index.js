@@ -2,7 +2,7 @@ import axios from "axios";
 
 class API {
   constructor(url, returnType) {
-    this.host = "http://localhost:8000";
+    this.host = "https://api.wrongpwd.com";
     this.url = url;
     this.returnType = returnType;
   }
