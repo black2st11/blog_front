@@ -33,7 +33,7 @@
 
 ### 백엔드(프라이빗 프로젝트로 올림)
 
-- 리포지토리: [https://github.com/black2st11/my_blog_backend](백엔드 리포지토리) 참고
+- 리포지토리: (https://github.com/black2st11/my_blog_backend)[백엔드 리포지토리] 참고
 
 ### 전략
 
