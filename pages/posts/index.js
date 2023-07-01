@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import * as S from "../../styles/post_style";
 import { PostAPI } from "../../api";
 import Date from "../../utils/date";
-import { Container } from "../../components/atom";
+import { Container, Text } from "../../components/atom";
+import { colorPallete } from "../../styles/config";
 const manage = data => {
   let temp = [];
   data.map((v, i, a) => {
@@ -78,6 +79,11 @@ const Posts = () => {
   const dataSource = manage(data);
   return (
     <Container>
+      <div style={{margin: '1rem 0'}}>
+          <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
+            깨달음을 적는 곳
+          </Text>
+        </div>
       <Table
         style={{ width: "100%", margin: "1rem auto" }}
         loading={false}

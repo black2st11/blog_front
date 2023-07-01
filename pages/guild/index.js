@@ -2,7 +2,8 @@ import * as S from "../../styles/guild_style";
 import { History } from "../../components/molecules";
 import { GuiAPI } from "../../api";
 import { useEffect, useState } from "react";
-import { Container } from "../../components/atom";
+import { Container, Text } from "../../components/atom";
+import { colorPallete } from "../../styles/config";
 
 export default function Guild() {
   const [data, setData] = useState({});
@@ -22,6 +23,11 @@ export default function Guild() {
 
   return (
     <Container>
+      <div style={{margin: '1rem 0'}}>
+          <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
+            현재까지의 기록
+          </Text>
+        </div>
       <S.Wrapper>
         <History list={data} />
       </S.Wrapper>

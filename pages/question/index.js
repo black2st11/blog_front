@@ -1,9 +1,10 @@
 import * as S from "../../styles/que_style";
 import { Qna } from "../../components/molecules";
-import { Container, Editor } from "../../components/atom";
+import { Container, Editor, Text } from "../../components/atom";
 import { Pagination } from "antd";
 import { useState, useEffect } from "react";
 import { QueAPI } from "../../api";
+import { colorPallete } from "../../styles/config";
 
 const Question = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,6 +50,11 @@ const Question = () => {
 
   return (
     <Container>
+      <div style={{margin: '1rem 0'}}>
+        <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
+          궁금한 것을 적는 곳
+        </Text>
+      </div>
       <S.WarningWrapper>
         동일 IP 제한(하루 5개)
       </S.WarningWrapper>
