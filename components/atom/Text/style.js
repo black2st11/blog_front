@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colorPallete } from "../../../styles/config";
+import { colorPallete, viewSize } from "../../../styles/config";
 
 const Base = css`
   color: ${(props) => (props.color ? props.color : colorPallete.black)};
@@ -14,6 +14,10 @@ export const H1 = styled.div`
 export const H2 = styled.div`
   ${Base};
   font-size: 3rem;
+
+  @media screen and (max-width: ${viewSize.tablet}){
+    font-size: 2rem;
+  }
 `;
 
 export const H3 = styled.div`
