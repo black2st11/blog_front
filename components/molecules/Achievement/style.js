@@ -9,6 +9,8 @@ export const Container = styled.div`
   border-radius: 1rem;
   box-shadow: 0.1rem 0.1rem 0.1rem rgb(0 0 0 / 10%);
   width: 100%;
+  max-width: 60rem;
+  
   @media screen and (max-width: ${viewSize.tablet}){
     max-width: 30rem;
   }
