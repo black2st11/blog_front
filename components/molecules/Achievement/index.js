@@ -4,9 +4,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
 const Achievement = ({
-  img,
+  attachs,
   name,
-  duration,
   position,
   start_date,
   end_date,
@@ -39,17 +38,17 @@ const Achievement = ({
   return (
     <S.Container is_phone={scrollX < phoneWidth}>
       <S.MainWrapper is_phone={scrollX < phoneWidth}>
-        {img && (
+        {attachs && (
           <S.ImgWrapper is_phone={scrollX < phoneWidth}>
             <Slider {...settings}>
-              {img &&
-                img.map((item, index, array) => (
-                  <Image
+              {attachs &&
+                attachs.map((item, index, array) => (
+                  <img
                     key={index}
-                    src={item.src}
+                    src={item.file}
                     width={400}
                     height={300}
-                    alt={`업적${index}`}
+                    alt={item.name}
                   />
                 ))}
             </Slider>
