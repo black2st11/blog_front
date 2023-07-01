@@ -65,6 +65,7 @@ export const FixedButton = styled.div`
   display: none;
   margin-right: 2rem;
   color: ${colorPallete.white};
+  color: ${props => (props.isTop ? colorPallete.white : colorPallete.black)};
   @media (max-width: ${viewSize.mobile}) {
     display: block;
   }

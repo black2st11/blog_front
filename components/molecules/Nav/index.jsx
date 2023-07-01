@@ -47,7 +47,7 @@ const Nav = ({ isTop, title, menus = [] }) => {
               );
             })}
           </S.Nav>
-          <S.FixedButton>
+          <S.FixedButton isTop={isTop}>
             {collapse ? (
               <AiOutlineMenuFold {...iconProps} />
             ) : (
