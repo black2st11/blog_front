@@ -27,5 +27,6 @@ export const fontSize = {
 
 export const viewSize = {
   mobile: "560px",
+  tablet: "820px",
   container: "65rem",
 };

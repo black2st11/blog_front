@@ -58,7 +58,7 @@ export const TitleWrapper = styled.div`
 export const Title = styled.h1`
   font-size: 2em;
   cursor: pointer;
-  color: ${props => (props.isTop ? "white" : "black")};
+  color: ${props => (props.isTop ? "white" : colorPallete.black)};
   font-weight: 600;
 `;
 
@@ -69,7 +69,7 @@ export const NavItem = styled.li`
 
 export const NavName = styled.p`
   font-size: 1.5em;
-  color: ${props => (props.isTop ? "white" : "black")};
+  color: ${props => (props.isTop ? "white" : colorPallete.black)};
   font-weight: 600;
 `;
 

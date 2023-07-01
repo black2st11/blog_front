@@ -35,7 +35,7 @@ const History = ({ list}) => {
             return (
               <S.ItemWrapper key={index} is_phone={scrollX < phoneWidth}>
                 <S.RangeWrapper>
-                  <Text type="h4">{`${item.start_date} ~ ${item.end_date}`}</Text>
+                  <Text type="h4">{`${item.start_date} ~ ${item.end_date ? item.end_date : '재직중'}`}</Text>
                   <S.DurationWrapper>
                     <Text type="h4">{item.duration}개월</Text>
                   </S.DurationWrapper>

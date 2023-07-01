@@ -44,6 +44,10 @@ export const ItemWrapper = styled.div`
 
 export const RangeWrapper = styled.div`
   margin-right: 5rem;
+  width: 20%;
+  @media screen and (max-width: 820px){
+    width: auto;
+  }
 `;
 export const DurationWrapper = styled.div`
   margin-top: 1rem;
@@ -63,6 +67,10 @@ export const WorkWrapper = styled.div`
 
 export const DetailWrapper = styled.div`
   margin: ${props => (props.is_phone ? "1rem 0" : "none")};
+  width: 80%;
+  @media screen and (max-width: 820px){
+    width: auto;
+  }
 `;
 
 export const Divider = styled.div``;

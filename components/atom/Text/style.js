@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
+import { colorPallete } from "../../../styles/config";
 
 const Base = css`
-  color: ${(props) => (props.color ? props.color : "#444")};
+  color: ${(props) => (props.color ? props.color : colorPallete.black)};
   font-weight: ${(props) => (props.weight ? props.weight : "400")};
 `;
 

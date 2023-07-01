@@ -1,6 +1,7 @@
 import * as S from "./style";
 import { Tag } from "antd";
 import Date from "../../../utils/date";
+import { colorPallete } from "../../../styles/config";
 
 const PostTitle = ({ title, tag, created_at }) => {
   return (
@@ -10,7 +11,7 @@ const PostTitle = ({ title, tag, created_at }) => {
         {tag &&
           tag.map((v, i, a) => {
             return (
-              <Tag color="#444" key={i}>
+              <Tag color={colorPallete.black} key={i}>
                 {v.name}
               </Tag>
             );
