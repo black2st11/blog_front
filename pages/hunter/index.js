@@ -3,7 +3,8 @@ import { Status, Archiving } from "../../components/molecules";
 import { MeAPI } from "../../api";
 import { useEffect, useState } from "react";
 import { hunter_data, skills_data, archivings_data } from "../../data/hunter";
-import { Container } from "../../components/atom";
+import { Container, Text } from "../../components/atom";
+import { colorPallete } from "../../styles/config";
 
 export default function Me() {
   const [info, setInfo] = useState({});
@@ -34,6 +35,11 @@ export default function Me() {
   }
   return (
     <Container>
+      <div style={{margin: '1rem 0'}}>
+        <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
+            B: Backend, F: Frontend, D: Database, I: Infra, L: Language, C: Comunication
+        </Text>
+      </div>
       <S.InfoWrapper>
         <Status title="정보" data={info} />
         <Status title="기술" data={skills} />
