@@ -5,18 +5,27 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { PostAPI, getPostFile } from "../../api";
 import { Container } from "../../components/atom";
+import dynamic from 'next/dynamic';
+
+const ReactQuill = dynamic( () => import('react-quill'), {
+    ssr : false
+})
+import 'react-quill/dist/quill.bubble.css'
+
+
 export default function Post() {
   const [data, setData] = useState();
-  const [file, setFile] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const { id } = router.query;
   useEffect(() => {
     (async () => {
       let data = await PostAPI.getDetailData(id);
-      let file_data = await getPostFile(data.file);
+      try{
+        const obj = JSON.parse(data.content)
+        data.content = obj.html
+      }catch(err){}
       setData(data);
-      setFile(file_data);
       setIsLoading(false);
     })();
   }, [id]);
@@ -30,9 +39,9 @@ export default function Post() {
       <S.TitleWrapper>
         <PostTitle {...data} />
       </S.TitleWrapper>
-      <article>
-        <div dangerouslySetInnerHTML={{ __html: file }} />
-      </article>
+      <div style={{width: '100%'}}>
+        <ReactQuill theme="bubble" value={data.content} readOnly={true} />
+      </div>
     </Container>
   );
 }

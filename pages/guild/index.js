@@ -23,7 +23,7 @@ export default function Guild() {
 
   return (
     <Container>
-      <div style={{margin: '1rem 0'}}>
+        <div style={{margin: '1rem 0'}}>
           <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
             현재까지의 기록
           </Text>

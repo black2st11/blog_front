@@ -80,10 +80,10 @@ const Posts = () => {
   return (
     <Container>
       <div style={{margin: '1rem 0'}}>
-          <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
-            깨달음을 적는 곳
-          </Text>
-        </div>
+        <Text type='h4' style={{weight: 'bold', color: colorPallete.warn}}>
+          깨달음을 적는 곳
+        </Text>
+      </div>
       <Table
         style={{ width: "100%", margin: "1rem auto" }}
         loading={false}
