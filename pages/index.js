@@ -31,13 +31,6 @@ export default function Home() {
             <Title>
               {section.category}
             </Title>
-          <div>
-            {section.descriptions.map((description, index) => (
-              <Description key={index}>
-                - {description.content}
-              </Description>
-            ))}
-          </div>
           </IntroWrapper>
         ))}
       </S.Inner>
