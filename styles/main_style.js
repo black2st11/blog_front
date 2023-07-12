@@ -3,7 +3,6 @@ import { colorPallete } from "./config";
 
 export const Outter = styled.div`
     width: 100%;
-    padding: 5rem 0;
     background-color: ${colorPallete.white};
 `
 
